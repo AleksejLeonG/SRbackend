@@ -23,7 +23,7 @@ def git_update():
     repo.create_head('main',
                      origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
     origin.pull()
-    return ''
+    return '', 200
 
 @app.route('/pdftotxt', methods = ['GET',"POST"])
 def pdftotxt():
