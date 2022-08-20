@@ -1,13 +1,12 @@
 #performing flask imports
-from socket import timeout
+
 from flask import Flask, jsonify, request
 import json
 import PyPDF2
 from werkzeug.serving import WSGIRequestHandler
 import requests
 import os
-from wand.image import Image  
-from wand.display import display  
+
 
 
 response=""
