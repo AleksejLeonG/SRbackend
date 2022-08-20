@@ -6,12 +6,24 @@ import PyPDF2
 from werkzeug.serving import WSGIRequestHandler
 import requests
 import os
+import git
+
 
 
 
 response=""
 
 app = Flask(__name__) 
+
+
+@app.route('/git_update', methods=['POST'])
+def git_update():
+    repo = git.Repo('./SRbackend')
+    origin = repo.remotes.origin
+    repo.create_head('main',
+                     origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
+    origin.pull()
+    return '', 200
 
 @app.route('/pdftotxt', methods = ['GET',"POST"])
 def pdftotxt():
