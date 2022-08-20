@@ -65,4 +65,4 @@ def pdftotxt():
 
 if __name__ == "__main__":
     WSGIRequestHandler.protocol_version = "HTTP/1.1"
-    app.run(debug = True) 
+    app.run(debug = False, host="0.0.0.0", port=5000) 
