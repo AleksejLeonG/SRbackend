@@ -1,6 +1,6 @@
 #performing flask imports
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template 
 import json
 import PyPDF2
 from werkzeug.serving import WSGIRequestHandler
@@ -65,7 +65,7 @@ def pdftotxt():
         os.remove(filename)  
     
  
-        return " "
+        return render_template("index.html")
 
     else: return jsonify({"file": response})    
 
