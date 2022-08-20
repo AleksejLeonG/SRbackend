@@ -65,14 +65,16 @@ def pdftotxt():
         os.remove(filename)  
     
  
-        return render_template("index.html")
+        return " "
 
     else: return jsonify({"file": response})    
 
 
         
 
-
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 if __name__ == "__main__":
     WSGIRequestHandler.protocol_version = "HTTP/1.1"
